@@ -9,9 +9,13 @@ function Banner() {
         fill
         priority
       />
-      <div className="absolute">
-        <p className="">Not sure where to go? Perfect.</p>
-        <button className=""> I'm flexible</button>
+      <div className="absolute top-1/2 w-full text-center">
+        <h1 className="font-semibold text-sm sm:text-lg">
+          Not sure where to go? Perfect.
+        </h1>
+        <button className="bg-white  py-3 px-10 text-purple-500 shadow-md rounded-full font-bold my-3 hover:shadow-xl hover:scale-95 active:scale-90 active:shadow-sm transition duration-150">
+          I'm flexible
+        </button>
       </div>
     </div>
   );
