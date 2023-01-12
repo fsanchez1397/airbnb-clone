@@ -32,8 +32,8 @@ const Header = () => {
         <p className="hidden md:inline cursor-pointer">Become A Host</p>
         <GlobeAltIcon className="h-6 cursor-pointer text-gray-800" />
         <div className="flex items-center space-x-2 border-2 p-1 rounded-full ">
-          <Bars3Icon className="h-6" />
-          <UserCircleIcon className="h-6" />
+          <Bars3Icon className="h-6 cursor-pointer" />
+          <UserCircleIcon className="h-6 cursor-pointer" />
         </div>
       </div>
     </header>
