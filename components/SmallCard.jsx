@@ -15,7 +15,7 @@ const SmallCard = ({ location, locationImg, locationDistance }) => {
       </div>
       <div className="pl-3 ">
         <figcaption className="font-semibold">{location}</figcaption>
-        <figcaption className="text-gray-500">{locationDistance}</figcaption>
+        <p className="text-gray-500">{locationDistance}</p>
       </div>
     </figure>
   );
