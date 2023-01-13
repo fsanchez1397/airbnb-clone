@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const LargeCard = ({ img, title, description, button }) => {
   return (
-    <figure className="relative  py-16 cursor-pointer">
+    <figure className="relative  py-16 ">
       <div className="relative h-96 min-w-[300px]">
         <Image
           src={img}
           alt={"A beautiful outdoor scenery"}
           fill
           style={{ objectFit: "cover" }}
-          className="rounded-2xl "
+          className="rounded-2xl cursor-pointer"
         />
       </div>
 
