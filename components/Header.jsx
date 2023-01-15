@@ -10,8 +10,10 @@ import {
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-
-const Header = () => {
+import { useRouter } from "next/router";
+import { format } from "date-fns";
+const Header = ({ placeholder }) => {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -27,11 +29,27 @@ const Header = () => {
       key: "selection",
     },
   ];
-
+  const search = (e) => {
+    e.preventDefault();
+    setSearchInput("");
+    // router.push("/search");
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        numGuests,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+      },
+    });
+  };
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-4 md:px-10">
       {/*Left */}
-      <div className="sticky flex items-center h-10 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="sticky flex items-center h-10 cursor-pointer my-auto"
+      >
         <Image
           src="http://links.papareact.com/qd3"
           fill
@@ -48,7 +66,7 @@ const Header = () => {
           }}
           className="flex-grow pl-3 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <MagnifyingGlassIcon className="hidden md:inline-flex h-8 bg-red-400 rounded-full text-white p-[5.9px] cursor-pointer md:mx-3" />
       </div>
@@ -64,6 +82,7 @@ const Header = () => {
 
       {searchInput && (
         <div className=" flex flex-col col-span-3 mx-auto ">
+          {/*Calendar */}
           <div className="relative overflow-hidden">
             <DateRangePicker
               ranges={selectionRange}
@@ -86,6 +105,7 @@ const Header = () => {
               className="w-12 pl-1  text-red-400 text-lg"
             />
           </div>
+          {/*Cancel / Search Buttons */}
           <div className="flex   ">
             <button
               className="flex-grow hover:bg-gray-200"
@@ -96,7 +116,9 @@ const Header = () => {
             >
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button className="flex-grow text-red-400" onClick={search}>
+              Search
+            </button>
           </div>
         </div>
       )}

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply p-4 border-b-2 rounded-lg text-red-400 shadow-lg transition duration-200 ease-out hover:bg-gray-200  hover:scale-95  active:scale-90 active:bg-white;
+  }
+}
