@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import HousingCard from "../components/HousingCard";
+import Mapbox from "../components/Mapbox";
 const Search = ({ searchResults }) => {
   const router = useRouter();
 
@@ -13,10 +14,10 @@ const Search = ({ searchResults }) => {
   return (
     <div>
       <Header placeholder={`${location} | ${travelDateRange} | ${numGuests}`} />
-      <main>
-        <section className="m-4">
-          <div>
-            {/*if 1 guest change guests to guest */}
+      <main className="flex ">
+        <section className="ml-10 mb-12  flex-grow">
+          {/*if 1 guest change guests to guest */}
+          <div className=" mb-4  ">
             <p>
               AMNTOFSTAYS - Stays from {travelDateRange} - for {numGuests}{" "}
               guests
@@ -28,8 +29,7 @@ const Search = ({ searchResults }) => {
             <button className="button">Rooms and Beds</button>
             <button className="button">More filters</button>
           </div>
-        </section>
-        <section className="mb-12">
+
           {searchResults?.map((rentalUnit) => {
             return (
               <HousingCard
@@ -38,6 +38,9 @@ const Search = ({ searchResults }) => {
               />
             );
           })}
+        </section>
+        <section className="hidden  xl:inline-flex xl:min-w-[600px]">
+          <Mapbox searchResults={searchResults} />
         </section>
       </main>
 

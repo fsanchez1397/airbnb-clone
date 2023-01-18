@@ -58,7 +58,7 @@ const Header = ({ placeholder }) => {
         />
       </div>
       {/*middle */}
-      <div className="flex items-center md:border-2 rounded-full md:shadow-sm ">
+      <div className="flex items-center md:border-2 rounded-full md:shadow-sm max-w-md">
         <input
           value={searchInput}
           onChange={(e) => {
