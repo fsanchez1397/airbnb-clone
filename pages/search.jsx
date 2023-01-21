@@ -17,12 +17,11 @@ const Search = ({ searchResults }) => {
       <main className="flex ">
         <section className="ml-10 mb-12  flex-grow">
           {/*if 1 guest change guests to guest */}
-          <div className=" mb-4  ">
+          <div className=" mb-4 ">
             <p>
-              AMNTOFSTAYS - Stays from {travelDateRange} - for {numGuests}{" "}
-              guests
+              300+ Stays from {travelDateRange} - for {numGuests} guests
             </p>
-            <p className="my-4">Stay in {location}</p>
+            <p className="my-4 text-3xl font-bold">Stay in {location}</p>
             <button className="button">Cancellation Flexibility</button>
             <button className="button">Type of Place</button>
             <button className="button">Price</button>
